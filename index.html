@@ -50,15 +50,13 @@
             
             $("#plotQuery").click(function() {
           
-              console.log($('.chosen-select').chosen().val())
               var plotVals = $('.chosen-select').chosen().val()
               var $finalQuery = MP.api.segment(eventName, propName, dateRange)
               var otherSlice = 0
             
-              $.when($segQuery).done(function(results) {
+              $.when($finalQuery).done(function(results) {
                 var finalResults = results.json
                 delete finalResults["undefined"];
-                console.log(finalResults)
                 $.each(finalResults, function(key, value) {
 
                   if ($.inArray(key, plotVals) == -1) {
@@ -86,8 +84,6 @@
         
         propSelect.on('change', runQuery);
         dateSelect.on('change', runQuery);
-        
-        
         
     });
     </script>
