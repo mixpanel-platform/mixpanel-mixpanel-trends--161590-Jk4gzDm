@@ -44,7 +44,7 @@
           
           $.when($segQuery).done(function(results) {
             $.each(results.json, function(key, value) {
-              $('.chosen-select').empty()
+              $('.chosen-select').empty();
               $('.chosen-select').append("<option value='"+key+"'>"+key+"</option>");
               $('.chosen-select').trigger("chosen:updated");
             });
